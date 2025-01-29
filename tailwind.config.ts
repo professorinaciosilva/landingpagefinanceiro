@@ -9,10 +9,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: '#2563EB', // Azul principal
+        secondary: '#FFD700', // Dourado principal
       },
     },
   },
   plugins: [],
 } satisfies Config;
+
+
