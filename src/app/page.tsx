@@ -63,7 +63,7 @@ export default function Page() {
             {/* Imagem do Autor */}
             <div className="w-full md:w-1/2 mb-6 md:mb-0 flex justify-center">
               <Image
-                src="/foto.jpg" // Substituir com a imagem real
+                src="/fotoperfil.png" // Substituir com a imagem real
                 alt="Foto do autor"
                 width={400}
                 height={400}

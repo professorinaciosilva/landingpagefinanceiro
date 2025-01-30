@@ -54,15 +54,15 @@ export default function Banner() {
       </div>
 
       {/* Texto sobreposto ao banner */}
-      <div className="relative z-10 h-full flex items-center justify-center bg-black bg-opacity-20 text-center text-white px-4">
+      <div className="relative z-10 h-full flex items-center justify-center bg-white-100 bg-opacity-10 text-center text-white px-4">
         <div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-12 text-white">
             Matemática e Educação Financeira
           </h1>
           <div className="container mx-auto px-4">
             <div className="p-6 md:p-8">
-              <h2 className="text-3xl font-bold mb-4 text-gray-100">Compre Agora</h2>
-              <p className="text-lg mb-6 text-gray-100">
+              <h2 className="text-3xl font-bold mb-4 text-gray-600">Compre Agora</h2>
+              <p className="text-lg mb-6 text-gray-700">
                 Conhecimento essencial e mais completo para sua vida financeira
               </p>
               <a
