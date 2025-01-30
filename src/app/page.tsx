@@ -67,7 +67,7 @@ export default function Page() {
                 alt="Foto do autor"
                 width={400}
                 height={400}
-                className="rounded-full shadow-lg max-w-xs sm:max-w-sm md:max-w-md h-auto"
+                className="rounded-full shadow-lg max-w-xs sm:max-w-sm md:max-w-md h-auto bg-gradient-to-r from-blue-300 to-gray-400"
                 loading="lazy"
               />
             </div>
