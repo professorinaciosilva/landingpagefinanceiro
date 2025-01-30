@@ -75,7 +75,7 @@ export default function Banner() {
                 href="#"
                 className="inline-block px-6 py-3 m-3 text-lg font-medium text-white hover:text-gray-700 bg-blue-600 rounded-lg hover:bg-[var(--dourado-principal)] transition-colors"
               >
-                Livro físico por R$12,00
+                Livro físico por $12,00
               </a>
             </div>
           </div>
