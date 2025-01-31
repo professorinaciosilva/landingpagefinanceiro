@@ -10,11 +10,11 @@ export default function Navigation() {
 
   return (
     <nav>
-      <ul className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
+      <ul className="flex flex-row space-x-4 overflow-x-auto">
         <li>
           <button
             onClick={() => handleScroll('#detalhes')}
-            className="hover:text-[var(--dourado-principal)] transition-colors"
+            className="hover:text-[var(--dourado-principal)] transition-colors text-sm md:text-base"
           >
             Detalhes
           </button>
@@ -22,7 +22,7 @@ export default function Navigation() {
         <li>
           <button
             onClick={() => handleScroll('#sobre')}
-            className="hover:text-[var(--dourado-principal)] transition-colors"
+            className="hover:text-[var(--dourado-principal)] transition-colors text-sm md:text-base"
           >
             Sobre
           </button>
@@ -30,7 +30,7 @@ export default function Navigation() {
         <li>
           <button
             onClick={() => handleScroll('#outros')}
-            className="hover:text-[var(--dourado-principal)] transition-colors"
+            className="hover:text-[var(--dourado-principal)] transition-colors text-sm md:text-base"
           >
             Outros
           </button>

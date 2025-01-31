@@ -16,8 +16,7 @@ export default function Header() {
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between py-4 px-6 space-y-4 md:space-y-0">
         {/* Logo e Nome */}
         <p className="flex items-center space-x-4">
-          
-          <span>Professor Inácio Silva</span>
+          Professor Inácio Silva
         </p>
 
         {/* Título */}

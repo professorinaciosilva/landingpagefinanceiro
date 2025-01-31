@@ -72,10 +72,10 @@ export default function Banner() {
                 E-book por R$22,00
               </a>
               <a
-                href="#"
+                href="https://www.amazon.com/dp/B0DVJ2Z1FD"
                 className="inline-block px-6 py-3 m-3 text-lg font-medium text-white hover:text-gray-700 bg-blue-600 rounded-lg hover:bg-[var(--dourado-principal)] transition-colors"
               >
-                Livro físico por $12,00
+                Livro físico por US$12,00
               </a>
             </div>
           </div>
