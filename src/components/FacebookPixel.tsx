@@ -8,7 +8,7 @@ const FACEBOOK_PIXEL_ID = '645498691174565'; // Seu ID do Pixel
 export default function FacebookPixel() {
   useEffect(() => {
     if (typeof window !== 'undefined' && !window.fbq) {
-      window.fbq = (...args: any[]) => {
+      window.fbq = (...args: unknown[]) => {
         if (window.fbq.callMethod) {
           window.fbq.callMethod(...args);
         } else {
@@ -18,7 +18,7 @@ export default function FacebookPixel() {
       window.fbq.push = window.fbq;
       window.fbq.loaded = true;
       window.fbq.version = '2.0';
-      window.fbq.queue = [];
+      window.fbq.queue = [] as const;
 
       const t = document.createElement('script');
       t.async = true;
@@ -43,7 +43,7 @@ export default function FacebookPixel() {
         dangerouslySetInnerHTML={{
           __html: `
             if (!window._fbq) {
-              window._fbq = window.fbq = function(...args) {
+              window._fbq = window.fbq = function(...args: unknown[]) {
                 window.fbq.callMethod
                   ? window.fbq.callMethod(...args)
                   : window.fbq.queue.push(args);
@@ -51,7 +51,7 @@ export default function FacebookPixel() {
               window.fbq.push = window.fbq;
               window.fbq.loaded = true;
               window.fbq.version = '2.0';
-              window.fbq.queue = [];
+              window.fbq.queue = [] as const;
               const t = document.createElement('script');
               t.async = true;
               t.src = 'https://connect.facebook.net/en_US/fbevents.js';
