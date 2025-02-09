@@ -5,20 +5,29 @@ import Script from 'next/script';
 
 const FACEBOOK_PIXEL_ID = '645498691174565'; // Seu ID do Pixel
 
+// Adicionando 'fbq' ao objeto 'window' global
+declare global {
+  interface Window {
+    fbq: (...args: unknown[]) => void;
+  }
+}
+
 export default function FacebookPixel() {
   useEffect(() => {
     if (typeof window !== 'undefined' && !window.fbq) {
-      window.fbq = (...args: unknown[]) => {
-        if (window.fbq.callMethod) {
-          window.fbq.callMethod(...args);
+      const fbq: (...args: unknown[]) => void = function (...args) {
+        if ((window.fbq as any).callMethod) {
+          (window.fbq as any).callMethod(...args);
         } else {
-          window.fbq.queue.push(args);
+          (window.fbq as any).queue.push(args);
         }
       };
-      window.fbq.push = window.fbq;
-      window.fbq.loaded = true;
-      window.fbq.version = '2.0';
-      window.fbq.queue = [] as const;
+
+      window.fbq = fbq;
+      (window.fbq as any).push = fbq;
+      (window.fbq as any).loaded = true;
+      (window.fbq as any).version = '2.0';
+      (window.fbq as any).queue = [];
 
       const t = document.createElement('script');
       t.async = true;
@@ -42,21 +51,23 @@ export default function FacebookPixel() {
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-            if (!window._fbq) {
-              window._fbq = window.fbq = function(...args: unknown[]) {
-                window.fbq.callMethod
-                  ? window.fbq.callMethod(...args)
-                  : window.fbq.queue.push(args);
+            if (!window.fbq) {
+              window.fbq = function(...args) {
+                if (window.fbq.callMethod) {
+                  window.fbq.callMethod(...args);
+                } else {
+                  window.fbq.queue.push(args);
+                }
               };
               window.fbq.push = window.fbq;
               window.fbq.loaded = true;
               window.fbq.version = '2.0';
-              window.fbq.queue = [] as const;
-              const t = document.createElement('script');
+              window.fbq.queue = [];
+              var t = document.createElement('script');
               t.async = true;
               t.src = 'https://connect.facebook.net/en_US/fbevents.js';
-              const s = document.getElementsByTagName('script')[0];
-              if (s?.parentNode) {
+              var s = document.getElementsByTagName('script')[0];
+              if (s && s.parentNode) {
                 s.parentNode.insertBefore(t, s);
               }
             }
