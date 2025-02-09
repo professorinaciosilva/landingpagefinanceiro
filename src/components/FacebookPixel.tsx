@@ -8,20 +8,26 @@ const FACEBOOK_PIXEL_ID = '645498691174565'; // Seu ID do Pixel
 export default function FacebookPixel() {
   useEffect(() => {
     if (typeof window !== 'undefined' && !window.fbq) {
-      window.fbq = function () {
-        window.fbq.callMethod
-          ? window.fbq.callMethod.apply(window.fbq, arguments)
-          : window.fbq.queue.push(arguments);
+      window.fbq = (...args: any[]) => {
+        if (window.fbq.callMethod) {
+          window.fbq.callMethod(...args);
+        } else {
+          window.fbq.queue.push(args);
+        }
       };
       window.fbq.push = window.fbq;
       window.fbq.loaded = true;
       window.fbq.version = '2.0';
       window.fbq.queue = [];
-      var t = document.createElement('script');
+
+      const t = document.createElement('script');
       t.async = true;
       t.src = 'https://connect.facebook.net/en_US/fbevents.js';
-      var s = document.getElementsByTagName('script')[0];
-      s.parentNode.insertBefore(t, s);
+
+      const s = document.getElementsByTagName('script')[0];
+      if (s?.parentNode) {
+        s.parentNode.insertBefore(t, s);
+      }
 
       window.fbq('init', FACEBOOK_PIXEL_ID);
       window.fbq('track', 'PageView');
@@ -37,20 +43,22 @@ export default function FacebookPixel() {
         dangerouslySetInnerHTML={{
           __html: `
             if (!window._fbq) {
-              window._fbq = window.fbq = function() {
+              window._fbq = window.fbq = function(...args) {
                 window.fbq.callMethod
-                  ? window.fbq.callMethod.apply(window.fbq, arguments)
-                  : window.fbq.queue.push(arguments);
+                  ? window.fbq.callMethod(...args)
+                  : window.fbq.queue.push(args);
               };
               window.fbq.push = window.fbq;
               window.fbq.loaded = true;
               window.fbq.version = '2.0';
               window.fbq.queue = [];
-              var t = document.createElement('script');
+              const t = document.createElement('script');
               t.async = true;
               t.src = 'https://connect.facebook.net/en_US/fbevents.js';
-              var s = document.getElementsByTagName('script')[0];
-              s.parentNode.insertBefore(t, s);
+              const s = document.getElementsByTagName('script')[0];
+              if (s?.parentNode) {
+                s.parentNode.insertBefore(t, s);
+              }
             }
             fbq('init', '${FACEBOOK_PIXEL_ID}');
             fbq('track', 'PageView');
