@@ -42,38 +42,46 @@ export default function Banner() {
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      {/* Banner responsivo com diferentes imagens */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src={bannerImage}
-          alt="Banner do ebook"
-          fill
-          style={{ objectFit: 'cover' }}
-          priority
-        />
-      </div>
+      {/* Imagem de fundo */}
+      <Image
+        src={bannerImage}
+        alt="Banner do ebook"
+        fill
+        style={{ objectFit: 'cover' }}
+        priority
+      />
+      
+      {/* Sobreposição escura para melhorar a legibilidade */}
+      <div className="absolute inset-0 bg-white bg-opacity-35"></div>
 
-      {/* Texto sobreposto ao banner */}
-      <div className="relative z-10 h-full flex items-center justify-center bg-white-100 bg-opacity-10 text-center text-white px-4">
+      {/* Conteúdo sobreposto */}
+      <div className="relative z-10 h-full flex items-center justify-center text-center text-white px-4">
         <div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-12 text-white">
+          {/* Título invisível para SEO */}
+          <h1 className="text-4xl md:text-5xl font-bold mb-12 text-white sr-only">
             Matemática e Educação Financeira
           </h1>
+
+          {/* Título visível com fundo semi-transparente */}
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gray-900 p-4 rounded-lg">  
+            Educação Financeira: O Conhecimento que Eleva e Transforma Seu Futuro  
+          </h2>  
+
           <div className="container mx-auto px-4">
             <div className="p-6 md:p-8">
-              <h2 className="text-3xl font-bold mb-4 text-gray-600">Compre Agora</h2>
-              <p className="text-lg mb-6 text-gray-700">
+              <h2 className="text-3xl font-bold mb-4 text-gray-700">Garanta seu Acesso Agora!</h2>
+              <p className="text-lg mb-6 text-gray-800">
                 Conhecimento essencial e mais completo para sua vida financeira
               </p>
               <a
                 href="https://www.amazon.com.br/dp/B0DV9Y4S8R"
-                className="inline-block px-6 py-3 m-3 text-lg font-medium text-white hover:text-gray-700 bg-blue-600 rounded-lg hover:bg-[var(--dourado-principal)] transition-colors"
+                className="inline-block px-6 py-3 m-3 text-lg font-medium text-white hover:text-gray-800 bg-blue-600 rounded-lg hover:bg-[var(--dourado-principal)] transition-colors"
               >
                 E-book por R$22,00
               </a>
               <a
                 href="https://www.amazon.com/dp/B0DVJ2Z1FD"
-                className="inline-block px-6 py-3 m-3 text-lg font-medium text-white hover:text-gray-700 bg-blue-600 rounded-lg hover:bg-[var(--dourado-principal)] transition-colors"
+                className="inline-block px-6 py-3 m-3 text-lg font-medium text-white hover:text-gray-800 bg-blue-600 rounded-lg hover:bg-[var(--dourado-principal)] transition-colors"
               >
                 Livro físico por US$12,00
               </a>
@@ -82,6 +90,7 @@ export default function Banner() {
         </div>
       </div>
     </section>
+
   );
 }
 
