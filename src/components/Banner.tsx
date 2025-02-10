@@ -33,9 +33,9 @@ export default function Banner() {
   // Determina o banner com base no tamanho da tela
   let bannerImage: string = '/banner-default.jpg';
   if (width >= 1025) {
-    bannerImage = '/banner-pc.png';
+    bannerImage = '/banner.png';
   } else if (width >= 641 && width <= 1024) {
-    bannerImage = '/banner-tablet.png';
+    bannerImage = '/banner.png';
   } else if (width <= 640) {
     bannerImage = '/banner-mobile.png';
   }
@@ -63,16 +63,13 @@ export default function Banner() {
           </h1>
 
           {/* Título visível com fundo semi-transparente */}
-          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gray-900 p-4 rounded-lg">  
-            Educação Financeira: O Conhecimento que Eleva e Transforma Seu Futuro  
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gray-800 p-4 rounded-lg">  
+            O Conhecimento que Eleva e Transforma 
           </h2>  
 
           <div className="container mx-auto px-4">
             <div className="p-6 md:p-8">
-              <h2 className="text-3xl font-bold mb-4 text-gray-700">Garanta seu Acesso Agora!</h2>
-              <p className="text-lg mb-6 text-gray-800">
-                Conhecimento essencial e mais completo para sua vida financeira
-              </p>
+              <h2 className="text-3xl font-bold mb-4 text-gray-800">Garanta seu Acesso Agora!</h2>
               <a
                 href="https://www.amazon.com.br/dp/B0DV9Y4S8R"
                 className="inline-block px-6 py-3 m-3 text-lg font-medium text-white hover:text-gray-800 bg-blue-600 rounded-lg hover:bg-[var(--dourado-principal)] transition-colors"
